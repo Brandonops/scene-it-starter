@@ -14,3 +14,9 @@ body {
 	margin-top: 20px;
 }
 
+img {
+	height: 400px;
+}
+.movie {
+	padding: 20px;
+}
