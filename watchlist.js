@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $moviesContainer.html(renderMovies(JSON.parse(localStorage.getItem("watchList"))));
 });
 
+
 function renderMovies(movieArray) {
     const $movieHtmlArray = movieArray.map(function(currentMovie) {
         return `
