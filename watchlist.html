@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     />
     <!-- <img src="background.jpg" id="bg" alt=""> -->
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="watchlist.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Mallanna&display=swap" rel="stylesheet">
   </head>
@@ -19,28 +19,15 @@
         <div class="col-12 header text-center">
           <h2 class="display-2 glow" id="title-header" >Scene It</h2>
           <a href="watchlist.html"><h3>My Watch List</h3></a>
-          <p class="subHeading">Search for movies you want to watch.</p>
-          <p class="subHeading">Save them to your list</p>
         </div>
       </div>
       <div class="row">
         <div class="col-12 search">
-          <form id="search-form">
-            <div class="input-group input-group-lg">
-              <input
-                class="form-control search-bar"
-                placeholder="Search for a movie..."
-              />
-              <button class="btn input-group-btn" type="submit" id="myForm">
-                Search
-              </button>
-            </div>
-          </form>
         </div>
       </div>
           <!-- MOVIES SHOW UP HERE! -->
           <!--all individual movie renderings-->
-          <div class="movies-container row d-flex justify-content-around d-flex flex-wrap" id="movies-container">
+          <div class="movies-container row d-flex justify-content-around d-flex flex-wrap">
             <!-- <div class="movie">
               <div class="card" style="width: 18rem;">
                 <img src="no_image.png" class="card-img-top" alt="...">
@@ -119,7 +106,7 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="data.js"></script>
-    <script src="index.js"></script>
+    <script src="watchlist.js"></script>
   </body>
 </html>
 

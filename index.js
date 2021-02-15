@@ -2,6 +2,36 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+function saveToWatchList(imdbID) {
+    
+        const movie = movieData.find((currentMovie) => {
+            return currentMovie.imdbID == imdbID;
+        })
+    
+
+        let data = localStorage.getItem("watchList");
+        let watchList = JSON.parse(data)
+
+        if (watchList === null) {
+            watchList = [];
+        }
+        watchList.push(movie);
+        watchListJSON = JSON.stringify(watchList);
+        localStorage.setItem("watchList", watchListJSON);
+}
+
+//     const movie = movieData.find(function(currentMovie) {
+//         return currentMovie.imdbID == imdbID;
+//     });
+
+//     let watchlist = JSON.parse(watchListJSON);
+
+//     if (watchlist === null) {
+//         watchlist = [];
+//     }
+//     watchlist.push(movie);
+// }
+
 function renderMovies(movieArray) {
     const $movieHtmlArray = movieArray.map(function (currentMovie) {
         return `
@@ -14,7 +44,7 @@ function renderMovies(movieArray) {
                         <h5 class="card-title ">${currentMovie.Year}</h5>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn  ml-5 mr-5 mb-2" style="background-color: #4b0d2c; color: white; width: 5em">Add</a>
+                        <a href="#" onclick="saveToWatchList('${currentMovie.imdbID}')" class="btn  ml-5 mr-5 mb-2" style="background-color: #4b0d2c; color: white; width: 5em;">Add</a>
                     </div>
                 </div>
             </div>
@@ -22,18 +52,18 @@ function renderMovies(movieArray) {
 
     })
     return $movieHtmlArray.join("");
-}
+};
 
 const $myForm = $("#search-form");
 $myForm.on("submit", (e) => {
     e.preventDefault();
-    
-    
+
+
     const $moviesContainer = $(".movies-container");
     $moviesContainer.html(renderMovies(movieData));
-    
+
     const $titleHeader = $("#title-header");
     $titleHeader.html("<h2 class='display-2' style='font-size: 100px; '>Scene It</h2>")
 
-})
+});
 
