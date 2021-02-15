@@ -3,12 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function saveToWatchList(imdbID) {
-    
         const movie = movieData.find((currentMovie) => {
             return currentMovie.imdbID == imdbID;
         })
-    
-
         let data = localStorage.getItem("watchList");
         let watchList = JSON.parse(data)
 
@@ -56,11 +53,21 @@ function renderMovies(movieArray) {
 
 const $myForm = $("#search-form");
 $myForm.on("submit", (e) => {
-    e.preventDefault();
-
-
+    
+    const searchString = document.querySelector(".search-bar").value;
+    const urlEncodedSearchString = encodeURIComponent(searchString);
     const $moviesContainer = $(".movies-container");
-    $moviesContainer.html(renderMovies(movieData));
+    e.preventDefault();
+    console.log(searchString);
+    console.log(urlEncodedSearchString);
+
+    axios.get(`http://www.omdbapi.com/?apikey=59354c85&s=${urlEncodedSearchString}`
+    ).then((response) => {
+        var movieHTML = renderMovies(response.data.Search);
+        $moviesContainer.html(movieHTML);
+        movieData = response.data.Search
+    })
+
 
     const $titleHeader = $("#title-header");
     $titleHeader.html("<h2 class='display-2' style='font-size: 100px; '>Scene It</h2>")
