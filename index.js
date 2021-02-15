@@ -14,11 +14,11 @@ function renderMovies(movieArray) {
                         <h5 class="card-title ">${currentMovie.Year}</h5>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn  ml-5 mr-5 mb-2" style="background-color: #e60073; color: white; width: 5em">Add</a>
+                        <a href="#" class="btn  ml-5 mr-5 mb-2" style="background-color: #4b0d2c; color: white; width: 5em">Add</a>
                     </div>
                 </div>
             </div>
-        </div>`
+    </div>`
 
     })
     return $movieHtmlArray.join("");

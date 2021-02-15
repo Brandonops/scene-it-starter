@@ -40,7 +40,12 @@ img {
   }
 
   .card {
-	  background-color: #f074b2;
+	  background-color: #534f51;
+  }
+
+  .card-body {
+	  color: #4b0d2c;
+	  font-weight: bold;
   }
 
 .subHeading {
@@ -50,6 +55,6 @@ img {
 
 
 button {
-	background-color: #e60073;
-	color: white;
+	background-color: #4b0d2c;
+	color: #534f51;
 }
